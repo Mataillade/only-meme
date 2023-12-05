@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
+    fontFamily: {
+      poppins: ["Poppins", "sans-serif"],
+    },
     extend: {
       colors: {
         primary : "#4FD8E0",
@@ -13,6 +16,7 @@ module.exports = {
         },
       }
     },
+
   },
   plugins: [],
 }
