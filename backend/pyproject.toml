@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "only-meme"
+version = "0.0.0"
+description = ""
+authors = ["La Team Angular"]
+readme = "README.md"
+packages = [{ include = "only_meme" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+argon2-cffi = "^23.1.0"
+blacksheep = "^2.0.0"
+pydantic = "^2.5.2"
+pyjwt = "^2.8.0"
+python-injection = "^0.5.8"
+uvicorn = "^0.24.0.post1"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+isort = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
