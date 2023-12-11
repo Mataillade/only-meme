@@ -12,6 +12,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { MemeButtonComponent } from './components/inputs/meme-button/meme-button.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SvgIconsComponent } from './components/svg-icons/svg-icons.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     MemeButtonComponent,
     FeedComponent,
     ProfileComponent,
+    SvgIconsComponent,
+    SvgIconsComponent,
   ],
   imports: [
     BrowserModule,

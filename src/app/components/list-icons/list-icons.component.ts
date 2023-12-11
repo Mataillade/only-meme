@@ -9,4 +9,7 @@ export class ListIconsComponent {
   @Input() icon: string = "";
   @Input() alt: string = "";
   @Input() title: string = "";
+  @Input() link: string = "";
+
+
 }
