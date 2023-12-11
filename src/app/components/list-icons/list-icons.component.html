@@ -1,5 +1,5 @@
-<li class="font-bold text-secondary text-lg">
-  <a class="flex flex-row gap-5 items-center" routerLink="{{link}}" routerLinkActive="text-primary" #rla="routerLinkActive">
+<li class="font-bold text-secondary text-lg hover:bg-primary-300 p-4 duration-150 rounded-full ">
+  <a class="flex flex-row items-center" routerLink="{{link}}" routerLinkActive="text-primary" #rla="routerLinkActive">
     <!--<img src="{{icon}}" alt="{{alt}}" height="30" width="30"   />-->
     <app-svg-icons class="{{rla.isActive ? 'bg-primary' : 'bg-secondary'}} w-[30px] h-[30px] " [path]="icon"></app-svg-icons>
     <span> {{title}}</span>
