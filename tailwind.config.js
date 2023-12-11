@@ -9,10 +9,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary : "#4FD8E0",
+        primary : {
+          DEFAULT: "#4FD8E0",
+          300: "rgba(79, 216, 224, 0.37)",
+        },
         secondary : {
           DEFAULT : "#436475",
-          50 : "rgba(42, 163, 239, 0.04)",
+          50 : "rgba(42, 163, 239, 0.07)",
         },
       }
     },
