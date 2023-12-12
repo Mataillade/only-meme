@@ -1,3 +1,5 @@
+from os import makedirs
+
 import uvicorn
 from blacksheep import Application, Request, pretty_json
 from blacksheep.server.openapi.v3 import OpenAPIHandler
@@ -19,6 +21,7 @@ swagger = OpenAPIHandler(
     ui_path="/",
 )
 swagger.bind_app(application)
+makedirs(constants.MEDIA_DIR, exist_ok=True)
 application.serve_files(
     constants.MEDIA_DIR,
     extensions={"png", "gif"},
