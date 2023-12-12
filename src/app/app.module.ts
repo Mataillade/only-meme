@@ -13,6 +13,9 @@ import { MemeButtonComponent } from './components/inputs/meme-button/meme-button
 import { FeedComponent } from './components/feed/feed.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SvgIconsComponent } from './components/svg-icons/svg-icons.component';
+import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
+import { DetailComponent } from './page/home/detail/detail.component';
+import { HomeFeedComponent } from './page/home/home-feed/home-feed.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { SvgIconsComponent } from './components/svg-icons/svg-icons.component';
     ProfileComponent,
     SvgIconsComponent,
     SvgIconsComponent,
+    HomeLayoutComponent,
+    DetailComponent,
+    HomeFeedComponent,
   ],
   imports: [
     BrowserModule,
