@@ -1,0 +1,24 @@
+<div *ngIf="isModalOpen">
+  <div class="fixed top-0 w-full h-full  backdrop-brightness-75 z-10 " ></div>
+  <div class="fixed flex flex-col gap-y-4 top-[10%] left-1/2 translate-x-[-50%] bg-[#f2f8fd] w-2/6 min-h-[33%] z-20 rounded-3xl px-4 py-3" >
+    <div>
+      <button (click)="closeModal()">
+        <app-svg-icons [path]="'assets/cross.svg'" class="bg-primary hover:bg-secondary duration-150 rotate-45 w-[20px] h-[20px] cursor-pointer"></app-svg-icons>
+      </button>
+    </div>
+    <div class="flex flex-col gap-y-3">
+      <div class="flex">
+        <app-svg-icons [path]="'assets/profile.svg'"  class="bg-secondary w-[30px] h-[30px]"></app-svg-icons>
+        <textarea class="w-full h-[100px] bg-[#f2f8fd] resize-none outline-none ml-2" placeholder="What's on your mind?" maxlength="140"></textarea>
+      </div>
+      <app-search-meme></app-search-meme>
+      <img src="assets/img.png" class="rounded-3xl">
+    </div>
+    <div class="border-t flex justify-between items-center py-2">
+        coucou
+      <button class="bg-primary text-white rounded-full p-2 w-fit hover:bg-secondary duration-150">
+        send
+      </button>
+    </div>
+  </div>
+</div>

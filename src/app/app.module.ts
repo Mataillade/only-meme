@@ -16,6 +16,9 @@ import { SvgIconsComponent } from './components/svg-icons/svg-icons.component';
 import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
 import { DetailComponent } from './page/home/detail/detail.component';
 import { HomeFeedComponent } from './page/home/home-feed/home-feed.component';
+import { MemeComponent } from './components/modals/meme/meme.component';
+import { SearchMemeComponent } from './components/search-meme/search-meme.component';
+import { SearchresultsComponent } from './components/searchresults/searchresults.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { HomeFeedComponent } from './page/home/home-feed/home-feed.component';
     HomeLayoutComponent,
     DetailComponent,
     HomeFeedComponent,
+    MemeComponent,
+    SearchMemeComponent,
+    SearchresultsComponent,
   ],
   imports: [
     BrowserModule,

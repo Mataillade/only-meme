@@ -14,9 +14,6 @@ const routes: Routes = [
       {path: 'detail/:id', component: DetailComponent},
     ]
   },
-
-
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
