@@ -1,5 +1,6 @@
 <app-home-layout>
   <div class="flex flex-col gap-y-10">
+    <app-header *ngIf="!inDetail"></app-header>
     <router-outlet></router-outlet>
   </div>
 </app-home-layout>

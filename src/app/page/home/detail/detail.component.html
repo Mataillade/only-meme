@@ -1,6 +1,15 @@
-<div class="flex flex-col">
-  <app-feed></app-feed>
-  <div class="h-28 bg-secondary-50">
-
+<div class="flex flex-col divide-y divide-secondary">
+  <app-feed [roundedBottom]="false"></app-feed>
+  <div class="flex flex-col mb-4 bg-secondary-50">
+    <div class="flex flex-row gap-x-3 items-center font-bold text-secondary">
+      <img src="assets/profile.svg" width="70px" alt="">
+      <div>
+        Poster une réponse ?
+      </div>
+    </div>
+    <app-search-meme></app-search-meme>
+    <div class="flex justify-end">
+      <button class="bg-primary text-white rounded-full px-4 py-2 font-bold">Poster</button>
+    </div>
   </div>
 </div>
