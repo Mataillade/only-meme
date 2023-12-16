@@ -18,8 +18,10 @@ class UserRepository(LocalRepository[User]):
         await super().add(user)
 
     async def get_by_username(self, username: str) -> User:
+        safe_username = username.lower()
+
         for user in self.data:
-            if user.username == username:
+            if user.username == safe_username:
                 return user
 
         raise Error(404)

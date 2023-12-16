@@ -9,10 +9,10 @@ packages = [{ include = "only_meme" }]
 [tool.poetry.dependencies]
 python = "^3.12"
 argon2-cffi = "^23.1.0"
-blacksheep = "^2.0.0"
+blacksheep = "^2.0.2"
 pydantic = "^2.5.2"
 pyjwt = "^2.8.0"
-python-injection = "^0.5.9"
+python-injection = "^0.5.10"
 uvicorn = "^0.24.0.post1"
 
 [tool.poetry.group.dev.dependencies]

@@ -321,6 +321,9 @@ cython_debug/
 .idea/
 .vscode/
 
+# Media
+media/
+
 # Useless files
 .dockerignore
 .gitignore

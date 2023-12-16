@@ -3,7 +3,7 @@ from uuid import UUID
 
 from injection import singleton
 
-from only_meme.entities import Post
+from only_meme.entities import Post, Response
 from only_meme.post.protocols import PPostRepository
 
 
@@ -22,3 +22,8 @@ class PostHandler:
 
     async def get_by_id(self, post_id: UUID) -> Post:
         return await self.post_repository.get_by_id(post_id)
+
+    async def reply(self, post: Post, **data) -> Response:
+        response = Response(**data)
+        post.reply(response)
+        return response

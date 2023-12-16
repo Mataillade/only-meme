@@ -3,18 +3,12 @@ ARG PYTHON_VERSION="3.12.1"
 # Python
 FROM python:${PYTHON_VERSION}-slim
 
-ARG WORK_DIR="/application"
+ARG WORK_DIR="/server"
 ARG PORT=8000
 
 # Working directory
 WORKDIR ${WORK_DIR}
-
-COPY ./common ./common
-COPY ./only_meme ./only_meme
-COPY ./constants.py .
-COPY ./main.py .
-COPY ./pyproject.toml .
-COPY ./poetry.lock .
+COPY . .
 
 # Setup system
 RUN apt-get upgrade -y
@@ -38,7 +32,8 @@ ENV FORWARDED_ALLOW_IPS="*"
 EXPOSE ${PORT}
 
 # Setup Python
-RUN pip install pip poetry --upgrade --no-cache-dir
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir poetry
 RUN poetry config installer.modern-installation true
 RUN poetry config virtualenvs.create false
 RUN poetry install --compile --no-cache --without dev

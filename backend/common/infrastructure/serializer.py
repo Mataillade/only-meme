@@ -10,5 +10,16 @@ class Serializer(BaseModel, ABC):
         return cls.model_validate(obj, from_attributes=True)
 
     @classmethod
-    def serialize_many(cls, objs: Iterable[Any]) -> tuple[Self, ...]:
-        return tuple(cls.serialize(obj) for obj in objs)
+    def serialize_many(
+        cls,
+        objs: Iterable[Any],
+        field: str = None,
+        reverse: bool = False,
+    ) -> tuple[Self, ...]:
+        return tuple(
+            sorted(
+                (cls.serialize(obj) for obj in objs),
+                key=(lambda obj: getattr(obj, field)) if field else None,
+                reverse=reverse,
+            )
+        )

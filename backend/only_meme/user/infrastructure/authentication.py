@@ -15,13 +15,13 @@ class AuthenticationHandler(Handler):
     async def authenticate(self, request: Request) -> Identity | None:
         key = request.get_first_header(b"Authorization")
 
-        if not key:
+        if not key or not key.startswith(b"Bearer "):
             return None
 
-        key = key.decode()[7:]
-
         try:
-            jwt = await self.secret_service.decode_jwt(key)
+            jwt = await self.secret_service.decode_jwt(
+                key.decode()[7:],
+            )
         except Error:
             return None
 
