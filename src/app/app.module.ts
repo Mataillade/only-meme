@@ -19,6 +19,12 @@ import { HomeFeedComponent } from './page/home/home-feed/home-feed.component';
 import { MemeComponent } from './components/modals/meme/meme.component';
 import { SearchMemeComponent } from './components/search-meme/search-meme.component';
 import { SearchresultsComponent } from './components/searchresults/searchresults.component';
+import { UploadComponent } from './page/upload/upload.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { TagInputComponent } from './components/inputs/tag-input/tag-input.component';
+import { TextInputsComponent } from './components/inputs/text-inputs/text-inputs.component';
+import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
+import { SearchLayoutBarComponent } from './components/search-layout-bar/search-layout-bar.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +46,19 @@ import { SearchresultsComponent } from './components/searchresults/searchresults
     MemeComponent,
     SearchMemeComponent,
     SearchresultsComponent,
+    UploadComponent,
+    TagInputComponent,
+    TextInputsComponent,
+    ImageViewerComponent,
+    SearchLayoutBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   exports: [

@@ -1,0 +1,11 @@
+<div class="">
+  <input placeholder="tags" type="text" class="rounded-full p-4 bg-secondary-50 border-2 border-white focus:outline-none focus:border-primary focus:border-2 w-full" (keydown)="handleKeyDown($event)">
+  <div class="flex flex-row gap-x-3 flex-wrap">
+    <div *ngFor="let item of textArray; let i = index" class="flex flex-row items-center mt-2">
+      <div class="flex flex-row bg-secondary-50 p-2 rounded-full">
+        <span> {{ item }}</span>
+        <div class="ml-2 text-secondary cursor-pointer" (click)="removeText(i)">X</div>
+      </div>
+    </div>
+  </div>
+</div>

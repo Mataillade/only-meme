@@ -4,6 +4,7 @@ import {LoginComponent} from "./page/login/login.component";
 import {HomeComponent} from "./page/home/home.component";
 import {DetailComponent} from "./page/home/detail/detail.component";
 import {HomeFeedComponent} from "./page/home/home-feed/home-feed.component";
+import {UploadComponent} from "./page/upload/upload.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,7 +15,10 @@ const routes: Routes = [
       {path: 'detail/:id', component: DetailComponent},
     ]
   },
+  { path : 'upload', component: UploadComponent },
+  { path: '**', redirectTo: 'login' }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

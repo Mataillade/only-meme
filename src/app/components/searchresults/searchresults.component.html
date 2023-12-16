@@ -1,24 +1,7 @@
-<div class="z-30 absolute w-full bg-white h-[200px] grid gap-3 overflow-y-auto grid-cols-3 py-4 px-2  ">
-  <div>
-    <img src="assets/img.png">
-  </div>  <div>
-  <img src="assets/img.png">
-</div>  <div>
-  <img src="assets/img.png">
-</div>  <div>
-  <img src="assets/img.png">
-</div>  <div>
-  <img src="assets/img.png">
-</div>
-  <div>
-    <img src="assets/img.png">
-  </div><div>
-  <img src="assets/img.png">
-</div><div>
-  <img src="assets/img.png">
-</div><div>
-  <img src="assets/img.png">
-</div><div>
-  <img src="assets/img.png">
-</div>
+<div *ngIf="showResults()">
+  <div class="z-30 absolute w-full bg-white h-[200px] grid gap-3 overflow-y-auto grid-cols-3 py-4 px-2  ">
+    <div class="search-results" *ngFor="let result of searchResults" (click)="showImage.emit(result)">
+      <img src="assets/img.png">
+    </div>
+  </div>
 </div>

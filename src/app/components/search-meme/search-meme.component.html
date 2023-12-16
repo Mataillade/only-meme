@@ -1,4 +1,18 @@
 <div class="flex flex-col gap-y-4 relative">
-  <app-searchbar></app-searchbar>
-  <app-searchresults></app-searchresults>
+  <app-searchbar
+    [showSearchBar]="showSearchBar"
+    (performSearch)="performSearch($event)"
+  ></app-searchbar>
+
+  <app-searchresults
+    [showSearchResults]="showSearchResults"
+    [searchResults]="searchResults"
+    (showImage)="showImage($event)"
+  ></app-searchresults>
+
+  <app-image-viewer
+    [showImageViewer]="showImageViewer"
+    [selectedImage]="selectedImage"
+    (closeImageViewer)="closeImageViewer()"
+  ></app-image-viewer>
 </div>

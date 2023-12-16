@@ -1,0 +1,4 @@
+<div *ngIf="showImageViewer">
+  <img [src]="selectedImage.imageUrl" alt="Selected Image" />
+  <button (click)="closeImageViewer.emit()">Close</button>
+</div>
