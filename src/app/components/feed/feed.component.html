@@ -1,4 +1,4 @@
-<div class="w-full bg-secondary-50 {{roundedBottom ? 'rounded-3xl' : 'rounded-t-3xl'}} py-5 px-7 flex flex-col gap-y-3 " (click)="goToDetail()">
+<div class="w-full bg-secondary-50 {{answer? '':  roundedBottom ? 'rounded-3xl' : 'rounded-t-3xl'}} py-5 px-7 flex flex-col gap-y-3 " (click)="goToDetail()">
   <div class="flex flex-row justify-between text-secondary font-bold items-center">
     <div class="flex flex-row items-center gap-x-3">
       <img src="assets/profile.svg" alt="" class="w-10 h-10 rounded-full ">
@@ -8,13 +8,13 @@
       {{"2023-12-16" | customDatePipe }}
     </div>
   </div>
-  <div class="text-secondary font-thin text-sm px-5">
+  <div *ngIf="!answer" class="text-secondary font-thin text-sm px-5">
     Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at http://kewcode.com  , thank u . #webdev
   </div>
   <div>
     <img src="assets/img.png" alt="" class="w-full rounded-3xl object-cover object-center ">
   </div>
-  <div class=" flex justify-between">
+  <div *ngIf="!answer" class=" flex justify-between">
     <div class="flex flex-row items-center gap-x-3 hover:bg-primary-300 duration-150 rounded-full p-2">
       <img src="assets/like.svg" alt="" class="w-5 h-5">
       <span class="text-secondary font-bold">1.2k</span>

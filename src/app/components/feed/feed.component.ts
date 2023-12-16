@@ -10,6 +10,8 @@ export class FeedComponent {
 
   @Input() roundedBottom: boolean = true;
 
+  @Input()answer: boolean = false;
+
   constructor(private router: Router, private route: ActivatedRoute){
   }
    goToDetail () {

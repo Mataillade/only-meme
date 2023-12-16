@@ -1,4 +1,7 @@
- <div *ngIf="showSearchBar">
-   <input [(ngModel)]="searchText" class="rounded-full w-full  p-4 bg-secondary-50 border-2 border-transparent focus:outline-none focus:border-primary focus:border-2" type="search" name="search" placeholder="Search...">
-   <button (click)="onSearch()">Search</button>
+ <div *ngIf="showSearchBar" class="flex flex-row divide-x gap-x-3 rounded-full w-full  p-4 bg-secondary-50 border-2 border-transparent focus:outline-none focus:border-primary focus:border-2">
+   <button class="bg-transparent duration-150 p-2 rounded-full hover:bg-primary-300 " (click)="onSearch()">
+     <app-svg-icons [path]="'assets/search.svg'" [class]="'w-6 h-6 bg-secondary'"></app-svg-icons>
+   </button>
+   <input [(ngModel)]="searchText" class="w-full bg-transparent focus:outline-none sea"  type="search" name="search" placeholder="Search...">
+
  </div>
