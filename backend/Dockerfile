@@ -11,11 +11,11 @@ WORKDIR ${WORK_DIR}
 COPY . .
 
 # Setup system
-RUN apt-get update &&  \
-    apt-get full-upgrade -y &&  \
-    apt-get install gcc -y &&  \
-    apt-get autoremove &&  \
-    apt-get clean
+RUN apt-get update
+RUN apt-get full-upgrade -y
+RUN apt-get install gcc -y
+RUN apt-get autoremove
+RUN apt-get clean
 
 # Environment variables
 ENV PYTHONDONTWRITEBYTECODE=1

@@ -15,6 +15,12 @@ from only_meme.user.infrastructure.authentication import AuthenticationHandler
 chdir(constants.ROOT_DIR)
 
 application = Application()
+application.use_cors(
+    allow_methods="*",
+    allow_origins="*",
+    allow_headers="* Authorization",
+    max_age=300,
+)
 swagger = OpenAPIHandler(
     info=Info(
         title="Only Meme API",
