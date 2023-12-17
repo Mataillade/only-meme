@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../service/authentification/auth.service";
+import {CookieService} from "../../service/cookie/cookie.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,12 +12,14 @@ import {AuthService} from "../../service/authentification/auth.service";
 export class LoginComponent {
   loginForm: FormGroup;
   authService: AuthService;
-  constructor(private fb: FormBuilder, authService: AuthService) {
+  cookieService: CookieService;
+  constructor(private fb: FormBuilder, authService: AuthService, cookieService: CookieService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
     this.authService = authService;
+    this.cookieService = cookieService;
   }
   login() {
     if (this.loginForm && this.loginForm.get('email') && this.loginForm.get('password')) {
@@ -27,6 +31,8 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe(
         (response) => {
           console.log(response);
+          this.cookieService.setCookie('user', email);
+          this.router.navigate(['/home']);
         },
         (error) => {
           console.log(error);
@@ -48,6 +54,8 @@ export class LoginComponent {
       this.authService.register(email, password).subscribe(
         (response) => {
           console.log(response);
+          this.cookieService.setCookie('user', email);
+          this.router.navigate(['/home']);
         },
         (error) => {
           console.log(error);
