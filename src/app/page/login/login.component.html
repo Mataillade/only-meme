@@ -5,10 +5,10 @@
       <span>Don’t have a account, Sign up</span>
     </div>
     <div>
-      <form action="" class="flex flex-col gap-4">
-        <app-text-inputs type="email" placeholder="email" id="email"></app-text-inputs>
-        <app-text-inputs type="password" placeholder="password" id="password"></app-text-inputs>
-        <button class="bg-primary hover:bg-secondary duration-150 font-bold text-white rounded-2xl p-4">Login</button>
+      <form [formGroup]="loginForm" class="flex flex-col gap-4">
+        <input formControlName="email" type="email" placeholder="email" id="email" class="rounded-full p-4 bg-secondary-50 border-2 border-white focus:outline-none focus:border-primary focus:border-2 w-full">
+        <input formControlName="password" type="password" placeholder="password" id="password" class="rounded-full p-4 bg-secondary-50 border-2 border-white focus:outline-none focus:border-primary focus:border-2 w-full">
+        <button (click)="login()" class="bg-primary hover:bg-secondary duration-150 font-bold text-white rounded-2xl p-4">Login</button>
       </form>
     </div>
   </div>
