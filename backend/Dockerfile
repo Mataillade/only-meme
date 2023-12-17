@@ -11,23 +11,17 @@ WORKDIR ${WORK_DIR}
 COPY . .
 
 # Setup system
-RUN apt-get upgrade -y
-RUN apt-get update
-RUN apt-get autoremove
-RUN apt-get clean
-
-RUN apt-get install gcc -y
+RUN apt-get update &&  \
+    apt-get full-upgrade -y &&  \
+    apt-get install gcc -y &&  \
+    apt-get autoremove &&  \
+    apt-get clean
 
 # Environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV POETRY_HOME="$HOME/.poetry"
-ENV PATH="$POETRY_HOME/bin:$PATH"
-
 ENV UVICORN_HOST="0.0.0.0"
 ENV UVICORN_PORT=$PORT
-
-ENV FORWARDED_ALLOW_IPS="*"
 
 EXPOSE ${PORT}
 

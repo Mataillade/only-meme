@@ -21,7 +21,7 @@ class UserRepository(LocalRepository[User]):
         safe_username = username.lower()
 
         for user in self.data:
-            if user.username == safe_username:
+            if user.username.lower() == safe_username:
                 return user
 
         raise Error(404)
