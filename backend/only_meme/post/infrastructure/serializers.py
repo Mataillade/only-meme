@@ -13,6 +13,7 @@ from only_meme.user.infrastructure.serializers import UserSerializer
 class PostSerializer(Serializer):
     id: UUID
     content: str
+    media_url: str | None
     author: UserSerializer
     date: datetime
 

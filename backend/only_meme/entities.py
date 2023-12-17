@@ -24,6 +24,7 @@ class Post(Entity):
     content: str
     author: User
     responses: set[Response] = field(default_factory=set)
+    media_url: str = field(default=None)
     date: datetime = field(default_factory=lambda: datetime.now(tz=timezone.utc))
 
     def reply(self, response: Response) -> Response:
