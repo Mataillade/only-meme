@@ -1,4 +1,6 @@
+from os import listdir
 from pathlib import Path
+from typing import Iterator
 
 from injection import singleton
 
@@ -19,6 +21,11 @@ class MediaService:
             return False
 
         return str(file_path).endswith(self.extensions)
+
+    def media_routes(self) -> Iterator[str]:
+        for file_name in listdir(self.dir):
+            if self.is_valid(file_name):
+                yield self.get_route(file_name)
 
     async def save(self, file_path: Path | str, data: bytes):
         with open(self.dir / file_path, "wb") as file:

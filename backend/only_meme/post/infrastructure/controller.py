@@ -100,3 +100,12 @@ class PostController(APIController):
                 )
 
         return self.bad_request()
+
+    @allow_anonymous()
+    @get("/media")
+    async def media(self) -> Response:
+        return self.pretty_json(
+            tuple(
+                self.media_service.media_routes(),
+            )
+        )
