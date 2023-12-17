@@ -37,4 +37,25 @@ export class LoginComponent {
       console.log('Password:', password);
     }
   }
+
+  signup() {
+    if (this.loginForm && this.loginForm.get('email') && this.loginForm.get('password')) {
+      // @ts-ignore
+      const email = this.loginForm.get('email').value;
+      // @ts-ignore
+      const password = this.loginForm.get('password').value;
+
+      this.authService.register(email, password).subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+
+      console.log('Email:', email);
+      console.log('Password:', password);
+    }
+  }
 }
