@@ -32,7 +32,7 @@ export class LoginComponent {
         (response: any) => {
           console.log(response);
           this.cookieService.setCookie('user', response.access_token);
-          //this.router.navigate(['/home']);
+          this.router.navigate(['/home']);
         },
         (error) => {
           console.log(error);
@@ -54,8 +54,7 @@ export class LoginComponent {
       this.authService.register(email, password).subscribe(
         (response) => {
           console.log(response);
-          this.cookieService.setCookie('user', email);
-          this.router.navigate(['/home']);
+          this.login();
         },
         (error) => {
           console.log(error);

@@ -1,6 +1,6 @@
 <div *ngIf="showImageViewer">
   <div class="relative w-fit mx-auto ">
-    <img [src]="selectedImage.imageUrl" class="rounded-3xl"  alt="Selected Image"/>
+    <img [src]="selectedImage" class="rounded-3xl"  alt="Selected Image"/>
     <button class="absolute top-4 right-4 p-2 bg-secondary rounded-full duration-150 hover:bg-primary-300"  (click)="closeImageViewer.emit()">
       <app-svg-icons path="assets/cross.svg" class="w-[20px] bg-primary h-[20px] rotate-45 "></app-svg-icons>
     </button>

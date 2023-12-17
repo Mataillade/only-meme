@@ -14,4 +14,14 @@ export class UploadService {
     return this.http.post(this.url + "/post/upload", formData, {headers: {"Authorization": "Bearer " + token}});
   }
 
+  list() {
+    const listMedia: Array<string> = []
+    this.http.get(this.url + "/post/media").subscribe((data: any) => {
+      for (let i = 0; i < data.length; i++) {
+        listMedia.push("http://localhost:8000" + data[i]);
+      }
+    });
+    return listMedia;
+  }
+
 }
