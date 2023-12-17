@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CustomDatePipe implements PipeTransform {
 
-  transform(timestamp: number | string): string {
+  transform(timestamp: number | string | Date ): string {
     const currentDate = new Date();
-    const targetDate = new Date(timestamp);
+    const targetDate = new Date(timestamp) ?? new Date();
     const timeDifference = currentDate.getTime() - targetDate.getTime();
 
     const seconds = Math.floor(timeDifference / 1000);

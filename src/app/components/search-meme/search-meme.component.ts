@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {UploadService} from "../../service/upload/upload.service";
+import {PostService} from "../../service/post/post.service";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-search-meme',
@@ -7,6 +9,9 @@ import {UploadService} from "../../service/upload/upload.service";
   styleUrls: ['./search-meme.component.css']
 })
 export class SearchMemeComponent {
+  @Input() formControlName!: FormControl;
+
+
   showSearchBar = true;
   showSearchResults = false;
   showImageViewer = false;
@@ -15,7 +20,7 @@ export class SearchMemeComponent {
   selectedImage = {};
   uploadService: UploadService;
 
-  constructor(uploadService: UploadService) {
+  constructor(uploadService: UploadService,private  postService: PostService){
     this.uploadService = uploadService;
     this.searchResults = [];
   }
@@ -27,8 +32,7 @@ export class SearchMemeComponent {
 
   showImage(image: any) {
     // Afficher l'image sélectionnée
-    console.log(image);
-    this.selectedImage = image;
+    this.postService.setImagePost(image);
     this.showSearchBar = false;
     this.showSearchResults = false;
     this.showImageViewer = true;

@@ -27,6 +27,8 @@ import { ImageViewerComponent } from './components/image-viewer/image-viewer.com
 import { SearchLayoutBarComponent } from './components/search-layout-bar/search-layout-bar.component';
 import { CustomDatePipe } from './pipe/date/custom-date.pipe';
 import {HttpClientModule} from "@angular/common/http";
+import { CopyDirective } from './directive/copy.directive';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import {HttpClientModule} from "@angular/common/http";
     ImageViewerComponent,
     SearchLayoutBarComponent,
     CustomDatePipe,
+    CopyDirective,
   ],
   imports: [
     BrowserModule,

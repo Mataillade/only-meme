@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {AuthService} from "../../service/authentification/auth.service";
 import {CookieService} from "../../service/cookie/cookie.service";
 import {Router} from "@angular/router";
 
+
+function emailValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const isValid = emailRegex.test(control.value);
+    return isValid ? null : { 'invalidEmail': true };
+  };
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +23,7 @@ export class LoginComponent {
   cookieService: CookieService;
   constructor(private fb: FormBuilder, authService: AuthService, cookieService: CookieService, private router: Router) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, emailValidator]],
       password: ['', [Validators.required]]
     });
     this.authService = authService;
