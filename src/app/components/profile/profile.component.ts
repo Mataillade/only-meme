@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {CookieService} from "../../service/cookie/cookie.service";
+import {AuthService} from "../../service/authentification/auth.service";
 
 @Component({
   selector: 'app-profile',
@@ -7,14 +8,24 @@ import {CookieService} from "../../service/cookie/cookie.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  name : string;
+  name : string | undefined;
+  authService: AuthService;
 
-  constructor(cookieService: CookieService) {
-    let cookieName = cookieService.getCookie("user");
-    if (cookieName == null) {
+  constructor(cookieService: CookieService, authService: AuthService) {
+    this.authService = authService;
+    let cookieToken = cookieService.getCookie("user");
+    if (cookieToken == null) {
       this.name = "Anonymous";
     } else {
-      this.name = cookieName;
+      authService.me(cookieToken).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.name = response.username;
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
     }
   }
 }

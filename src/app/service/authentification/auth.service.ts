@@ -5,14 +5,18 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class AuthService {
-  private url = "http://localhost:8000/api";
+  private url = "http://localhost:8000/api/user";
 
   constructor(private http: HttpClient) { }
   login(email: string, password: string) {
-    return this.http.post(this.url + '/user/login', {"username": email, "password": password});
+    return this.http.post(this.url + '/login', {"username": email, "password": password});
   }
 
   register(email: string, password: string) {
-    return this.http.post(this.url + '/user/register', {"username": email, "password": password});
+    return this.http.post(this.url + '/register', {"username": email, "password": password});
+  }
+
+  me(token: string) {
+    return this.http.get(this.url + '/me', {headers: {"Authorization": "Bearer " + token}});
   }
 }

@@ -29,10 +29,10 @@ export class LoginComponent {
       const password = this.loginForm.get('password').value;
 
       this.authService.login(email, password).subscribe(
-        (response) => {
+        (response: any) => {
           console.log(response);
-          this.cookieService.setCookie('user', email);
-          this.router.navigate(['/home']);
+          this.cookieService.setCookie('user', response.access_token);
+          //this.router.navigate(['/home']);
         },
         (error) => {
           console.log(error);
