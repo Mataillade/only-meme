@@ -26,6 +26,9 @@ import { TextInputsComponent } from './components/inputs/text-inputs/text-inputs
 import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
 import { SearchLayoutBarComponent } from './components/search-layout-bar/search-layout-bar.component';
 import { CustomDatePipe } from './pipe/date/custom-date.pipe';
+import {HttpClientModule} from "@angular/common/http";
+import { CopyDirective } from './directive/copy.directive';
+
 
 @NgModule({
   declarations: [
@@ -53,14 +56,15 @@ import { CustomDatePipe } from './pipe/date/custom-date.pipe';
     ImageViewerComponent,
     SearchLayoutBarComponent,
     CustomDatePipe,
+    CopyDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
+    ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule
-
+    HttpClientModule
   ],
   providers: [],
   exports: [

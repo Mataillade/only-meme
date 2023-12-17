@@ -6,21 +6,23 @@
         <app-svg-icons [path]="'assets/cross.svg'" class="bg-primary hover:bg-secondary duration-150 rotate-45 w-[20px] h-[20px] cursor-pointer"></app-svg-icons>
       </button>
     </div>
-    <div class="flex flex-col gap-y-3">
-      <div class="flex">
-        <app-svg-icons [path]="'assets/profile.svg'"  class="bg-secondary w-[30px] h-[30px]"></app-svg-icons>
-        <textarea class="w-full h-[100px] bg-[#f2f8fd] resize-none outline-none ml-2" placeholder="What's on your mind?" maxlength="140"></textarea>
+    <form [formGroup]="postForm">
+      <div class="flex flex-col gap-y-3">
+        <div class="flex">
+          <app-svg-icons [path]="'assets/profile.svg'"  class="bg-secondary w-[30px] h-[30px]"></app-svg-icons>
+          <textarea formControlName="content" class="w-full h-[100px] bg-[#f2f8fd] resize-none outline-none ml-2" placeholder="What's on your mind?" maxlength="140"></textarea>
+        </div>
+        <app-search-meme></app-search-meme>
       </div>
-      <app-search-meme></app-search-meme>
-    </div>
-    <div>
-      <app-tag-input></app-tag-input>
-    </div>
-    <div class="border-t flex justify-between items-center py-2">
-        coucou
-      <button class="bg-primary text-white rounded-full p-2 w-fit hover:bg-secondary duration-150">
-        send
-      </button>
-    </div>
+      <div>
+        <app-tag-input></app-tag-input>
+      </div>
+      <div class="border-t flex justify-between items-center py-2">
+          coucou
+        <button (click)="post()" class="bg-primary text-white rounded-full p-2 w-fit hover:bg-secondary duration-150">
+          send
+        </button>
+      </div>
+    </form>
   </div>
 </div>

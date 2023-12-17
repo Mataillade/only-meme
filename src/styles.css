@@ -11,3 +11,15 @@
 .background {
     background: linear-gradient(0deg, #255878 0%, #15202B 98.36%);
 }
+
+
+.copy-notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}

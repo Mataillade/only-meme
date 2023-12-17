@@ -1,32 +1,17 @@
 <app-home-layout>
-  <!-- upload-page.component.html -->
-  <form #uploadForm="ngForm" (ngSubmit)="uploadFile()" enctype="multipart/form-data">
+  <form [formGroup]="uploadForm" enctype="multipart/form-data">
   <div class=" mx-auto mt-8">
     <div class=" mx-auto p-6 bg-white rounded-md shadow-md">
       <h2 class="text-xl font-semibold mb-4">Upload de Fichier</h2>
-
-      <!-- Nom du Fichier -->
-      <div class="mb-4">
-        <app-text-inputs type="text" id="filename" placeholder="Nom du fichier" ></app-text-inputs>
-      </div>
-
-      <!-- Tags -->
-      <div class="mb-4">
-        <app-tag-input></app-tag-input>
-      </div>
-
-      <!-- Zone de Drop/Drag -->
       <div class="mb-4">
         <label for="fileInput" class="block text-sm font-medium text-gray-600 mb-2">Fichier (Drag & Drop ou Cliquez)</label>
         <div class="border border-dashed border-gray-400 p-4 rounded-md">
-          <input type="file" id="fileInput" name="fileInput" class="bac"  (change)="onFileChange($event)">
+          <input formControlName="fileInput" type="file" id="fileInput" name="fileInput" class="bac" (change)="onFileChange($event)">
           <div (drop)="onFileDrop($event)" (dragover)="onDragOver($event)" class="cursor-pointer">
             <p class="text-gray-400 text-center">Glissez et déposez le fichier ici, ou cliquez pour sélectionner un fichier.</p>
           </div>
         </div>
       </div>
-
-      <!-- Bouton d'envoi -->
       <button class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600" (click)="uploadFile()">Envoyer</button>
     </div>
   </div>

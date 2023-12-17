@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component : LoginComponent },
   { path: 'home', component : HomeComponent , children: [
-      {path: '', redirectTo: 'feed', pathMatch: 'full'},
-      {path: 'feed', component: HomeFeedComponent},
+      {path: '', redirectTo: 'post', pathMatch: 'full'},
+      {path: 'post', component: HomeFeedComponent},
       {path: 'detail/:id', component: DetailComponent},
     ]
   },

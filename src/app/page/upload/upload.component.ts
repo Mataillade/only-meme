@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {UploadService} from "../../service/upload/upload.service";
+import {CookieService} from "../../service/cookie/cookie.service";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-upload',
@@ -6,27 +9,48 @@ import { Component } from '@angular/core';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent {
+  uploadService: UploadService;
+  selectedFile: File | undefined;
+  cookieService: CookieService;
+  uploadForm: FormGroup;
+  constructor(uploadService: UploadService, cookieService: CookieService, formBuilder: FormBuilder) {
+    this.uploadService = uploadService;
+    this.cookieService = cookieService;
+    this.uploadForm = formBuilder.group({
+      fileInput: new FormControl( [])
+    });
+  }
+
   onFileChange(event: any): void {
-    // Logique pour gérer le changement de fichier
-    console.log(event.target.files);
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+    }
   }
 
   onFileDrop(event: any): void {
-    event.preventDefault();
-    this.handleFileDrop(event.dataTransfer.files);
+    console.log('File dropped');
   }
 
   onDragOver(event: any): void {
-    event.preventDefault();
-  }
-
-  handleFileDrop(files: FileList): void {
-    // Logique pour gérer le fichier déposé
-    console.log(files);
+    console.log('Drag over');
   }
 
   uploadFile(): void {
-    // Logique pour gérer l'envoi du fichier
-    console.log('Fichier envoyé !');
-  }
+      if (this.selectedFile) {
+        let token = this.cookieService.getCookie('user');
+        if (token) {
+          this.uploadService.upload(this.selectedFile, token).subscribe(
+            (response) => {
+              console.log('Fichier envoyé !');
+              console.log(response);
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+        } else {
+          console.log('Pas de token');
+        }
+      }
+    }
 }
