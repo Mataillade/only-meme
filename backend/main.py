@@ -1,4 +1,4 @@
-from os import chdir, makedirs
+from os import makedirs
 
 import uvicorn
 from blacksheep import Application, Request, pretty_json
@@ -11,8 +11,6 @@ from openapidocs.v3 import Info
 import constants
 from common.exceptions import Error
 from only_meme.user.infrastructure.authentication import AuthenticationHandler
-
-chdir(constants.ROOT_DIR)
 
 application = Application()
 application.use_cors(

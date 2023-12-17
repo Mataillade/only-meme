@@ -325,6 +325,7 @@ cython_debug/
 media/
 
 # Useless files
+.git/
 .dockerignore
 .gitignore
 before_commit.sh
